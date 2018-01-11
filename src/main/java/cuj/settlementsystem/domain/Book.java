@@ -1,7 +1,5 @@
 package cuj.settlementsystem.domain;
 
-import org.apache.log4j.Logger;
-
 import java.util.Date;
 
 /**
@@ -9,20 +7,18 @@ import java.util.Date;
  */
 public class Book {
 
-    private long bookNumber;
     private String bookName;
     private String author;
     private String publishingHouse;
     private Date publishingDate;
     private float price;
-    private String discountTpye;
+    private DiscountType discountTpye;
 
     public Book() {
     }
 
     /**
      *
-     * @param bookNumber
      * @param bookName
      * @param author
      * @param publishingHouse
@@ -30,22 +26,13 @@ public class Book {
      * @param price
      * @param discountTpye
      */
-    public Book(long bookNumber, String bookName, String author, String publishingHouse, Date publishingDate, float price, String discountTpye) {
-        this.bookNumber = bookNumber;
+    public Book(String bookName, String author, String publishingHouse, Date publishingDate, float price, DiscountType discountTpye) {
         this.bookName = bookName;
         this.author = author;
         this.publishingHouse = publishingHouse;
         this.publishingDate = publishingDate;
         this.price = price;
         this.discountTpye = discountTpye;
-    }
-
-    public long getBookNumber() {
-        return bookNumber;
-    }
-
-    public void setBookNumber(long bookNumber) {
-        this.bookNumber = bookNumber;
     }
 
     public String getBookName() {
@@ -88,18 +75,17 @@ public class Book {
         this.price = price;
     }
 
-    public String getDiscountTpye() {
+    public DiscountType getDiscountTpye() {
         return discountTpye;
     }
 
-    public void setDiscountTpye(String discountTpye) {
+    public void setDiscountTpye(DiscountType discountTpye) {
         this.discountTpye = discountTpye;
     }
 
     public String getInfo()
     {
-        return " bookNumber : " + bookNumber + " ; \n" +
-                " bookName : " + bookName + " ; \n" +
+        return " bookName : " + bookName + " ; \n" +
                 " author : " + author + " ; \n" +
                 " publishingHouse : " + publishingHouse + " ; \n" +
                 " publishingDate : " + publishingDate + " ; \n" +
