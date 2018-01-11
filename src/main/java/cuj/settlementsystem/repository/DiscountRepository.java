@@ -1,17 +1,15 @@
 package cuj.settlementsystem.repository;
 
+import cuj.settlementsystem.domain.DiscountType;
+
 import java.util.Map;
 
 /**
  * Created by cujamin on 2018/1/11.
  */
 public interface DiscountRepository {
-    Map<String,Float> checkAllDiscount();
 
-    boolean addNewDiscount(String discountType,float discount);
-    boolean delOldDiscount(String discountType);
-    boolean updataDiscount(String discountType,float discount);
-    boolean checkDiscountByType(String discountType);
+    Map<DiscountType, Double> checkAllDiscount();
 
-    float getDiscountByDiscountType(String discountType);
+    double getDiscountByDiscountType(DiscountType discountType);
 }

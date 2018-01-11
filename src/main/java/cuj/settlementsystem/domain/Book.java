@@ -3,6 +3,7 @@ package cuj.settlementsystem.domain;
 import java.util.Date;
 
 /**
+ * 暂时用书名 bookName 作为图书的唯一表述
  * Created by cujamin on 2018/1/11.
  */
 public class Book {
@@ -17,15 +18,6 @@ public class Book {
     public Book() {
     }
 
-    /**
-     *
-     * @param bookName
-     * @param author
-     * @param publishingHouse
-     * @param publishingDate
-     * @param price
-     * @param discountTpye
-     */
     public Book(String bookName, String author, String publishingHouse, Date publishingDate, float price, DiscountType discountTpye) {
         this.bookName = bookName;
         this.author = author;
@@ -85,16 +77,18 @@ public class Book {
 
     public String getInfo()
     {
-        return " bookName : " + bookName + " ; \n" +
-                " author : " + author + " ; \n" +
-                " publishingHouse : " + publishingHouse + " ; \n" +
-                " publishingDate : " + publishingDate + " ; \n" +
-                " price : " + price + " ; \n"+
-                " discountTpye : " + discountTpye + " ; \n";
+        return "\n------------------------------------------------\n"+
+                "-- bookName : " + bookName + " ; \n" +
+                "-- author : " + author + " ; \n" +
+                "-- publishingHouse : " + publishingHouse + " ; \n" +
+                "-- publishingDate : " + publishingDate + " ; \n" +
+                "-- price : " + price + " ; \n"+
+                "-- discountTpye : " + discountTpye + " ; \n"+
+                "------------------------------------------------";
     }
 
     /**
-     *
+     * 暂时用书名 bookName 作为图书的唯一表述
      * @param other
      * @return
      */

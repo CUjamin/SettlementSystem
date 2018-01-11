@@ -1,20 +1,18 @@
 package cuj.settlementsystem.repository;
 
 import cuj.settlementsystem.domain.Book;
-
-import java.util.List;
+import java.util.Map;
 
 /**
  * Created by cujamin on 2018/1/11.
  */
 public interface BookRepository {
-    List<Book> checkBookList();
 
-    boolean addNewBook(Book newBook);
-    boolean addNewBooks(Book newBook , int number);
+    Book checkBookInfo(String bookName);
 
-    boolean delNewBook(Book newBook);
-    boolean delNewBooks(Book newBook , int number);
+    Map<String,Integer> checkStockMap();
 
-    Book getTheBookByName(String bookName);
+    boolean addNewBooks(Book newBook , int count);
+
+    boolean delNewBooks(Book newBook , int count);
 }
