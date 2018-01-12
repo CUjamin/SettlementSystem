@@ -12,11 +12,20 @@ public class BookRepositoryImpl implements BookRepository {
 
     private final Logger logger = Logger.getLogger(BookRepositoryImpl.class);
 
+    private static BookRepository bookRepository = new BookRepositoryImpl();
+
     //<bookName,Book> 书目
     private Map<String,Book> bookMap = new ConcurrentHashMap<String, Book>();
 
     //<bookName,Integer> 库存
     private Map<String,Integer> stockMap = new ConcurrentHashMap<String, Integer>();
+
+    private BookRepositoryImpl() {}
+
+    public static BookRepository getInstance()
+    {
+        return bookRepository;
+    }
 
     private void updataBookMap(Book newBook)
     {

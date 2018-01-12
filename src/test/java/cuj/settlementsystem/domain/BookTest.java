@@ -21,12 +21,12 @@ public class BookTest {
 
     @Test
     public void getInfo() throws Exception {
-        System.out.println(a.getInfo());
+        System.out.printf("BOOKA:%s%n", a.getInfo());
     }
 
     @Test
     public void equals() throws Exception {
-        System.out.println(a.equals(b));
+        System.out.printf("a.equals(b):%s%n", a.equals(b));
     }
 
 }

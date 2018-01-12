@@ -84,7 +84,7 @@ public class Book {
                 "-- publishingDate : " + publishingDate + " ; \n" +
                 "-- price : " + price + " ; \n"+
                 "-- discountTpye : " + discountTpye + " ; \n"+
-                "------------------------------------------------";
+                "------------------------------------------------\n";
     }
 
     /**

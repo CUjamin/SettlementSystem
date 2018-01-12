@@ -21,7 +21,7 @@ public class BookRepositoryTest {
 
     @Before
     public void setUp() throws Exception {
-        bookRepository = new BookRepositoryImpl();
+        bookRepository = BookRepositoryImpl.getInstance();
         bookA = new Book("A","author","publish", new Date(),10, DiscountType.NEW_BOOK);
         bookB = new Book("B","author","publish", new Date(),10, DiscountType.NEW_BOOK);
         bookRepository.addNewBooks(bookA, 1);
@@ -30,8 +30,21 @@ public class BookRepositoryTest {
 
     @Test
     public void checkBookInfo() throws Exception {
-        System.out.printf(bookRepository.checkBookInfo("A").getInfo());
-        System.out.printf(bookRepository.checkBookInfo("C").getInfo());
+        Book book = bookRepository.checkBookInfo("A");
+        checkBook("A",book);
+        book = bookRepository.checkBookInfo("C");
+        checkBook("C",book);
+    }
+    private void checkBook(String bookName,Book book)
+    {
+        if(book==null)
+        {
+            System.out.printf(String.format("BOOK <%s> is null\n", bookName));
+        }
+        else
+        {
+            System.out.printf(String.format("BOOK <%s>:%s\n", bookName, book.getInfo()));
+        }
     }
 
     @Test

@@ -13,7 +13,7 @@ public class DiscountRepositoryTest {
     DiscountRepository discountRepository = null;
     @Before
     public void setUp() throws Exception {
-        discountRepository = new DiscountRepositoryImpl();
+        discountRepository = DiscountRepositoryImpl.getInstance();
     }
 
     @Test

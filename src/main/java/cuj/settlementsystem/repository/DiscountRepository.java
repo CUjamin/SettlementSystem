@@ -1,7 +1,6 @@
 package cuj.settlementsystem.repository;
 
 import cuj.settlementsystem.domain.DiscountType;
-
 import java.util.Map;
 
 /**

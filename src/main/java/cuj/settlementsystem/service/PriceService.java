@@ -6,5 +6,6 @@ import cuj.settlementsystem.domain.Book;
  * Created by cujamin on 2018/1/11.
  */
 public interface PriceService {
+
     double discountPrice(Book book);
 }

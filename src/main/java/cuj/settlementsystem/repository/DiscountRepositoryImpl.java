@@ -2,7 +2,6 @@ package cuj.settlementsystem.repository;
 
 import cuj.settlementsystem.domain.DiscountType;
 import org.apache.log4j.Logger;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -13,11 +12,15 @@ public class DiscountRepositoryImpl implements DiscountRepository {
 
     private final Logger logger = Logger.getLogger(BookRepositoryImpl.class);
 
+    private static DiscountRepository discountRepository = new DiscountRepositoryImpl();
+
     private Map<DiscountType, Double> discountMap = null;
 
-    public DiscountRepositoryImpl()
+    private DiscountRepositoryImpl() {init();}
+
+    public static DiscountRepository getInstance()
     {
-        init();
+        return discountRepository;
     }
 
     private void init()

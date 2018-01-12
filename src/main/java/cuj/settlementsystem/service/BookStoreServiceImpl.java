@@ -10,8 +10,11 @@ import java.util.Map;
  * Created by cujamin on 2018/1/12.
  */
 public class BookStoreServiceImpl implements BookStoreService {
+
     private final Logger logger = Logger.getLogger(BookRepositoryImpl.class);
-    private BookRepository bookRepository = new BookRepositoryImpl();
+
+    private BookRepository bookRepository = BookRepositoryImpl.getInstance();
+
     private PriceService priceService = new PriceServiceImpl();
 
     public void showStockMap() {
@@ -22,15 +25,30 @@ public class BookStoreServiceImpl implements BookStoreService {
 
     public void showBookInfo(String bookName) {
         Book book = bookRepository.checkBookInfo(bookName);
-        logger.info(book.getInfo());
+        if(book==null)
+        {
+            logger.info(String.format(" [ ERROR - stockMap is not has the book <%s> ] ", bookName));
+        }
+        else
+        {
+            logger.info(" [ SUCCES - showBookInfo : "+book.getInfo()+" ] ");
+        }
     }
 
     public double checkPriceByBookName(String bookName) {
         Book book = bookRepository.checkBookInfo(bookName);
-        return priceService.discountPrice(book);
+        if(book==null)
+        {
+            logger.info(String.format(" [ ERROR - stockMap is not has the book <%s> ] ", bookName));
+            return 0;
+        }
+        else
+        {
+            return priceService.discountPrice(book);
+        }
     }
 
-    public Book buyBookByName(String bookName, float price) {
+    public Book buyBookByName(String bookName, double price) {
         Book book = bookRepository.checkBookInfo(bookName);
         double needPay = checkPriceByBookName(bookName);
         if(price==needPay)
