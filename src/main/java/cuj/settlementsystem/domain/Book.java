@@ -12,13 +12,13 @@ public class Book {
     private String author;
     private String publishingHouse;
     private Date publishingDate;
-    private float price;
+    private double price;
     private DiscountType discountTpye;
 
     public Book() {
     }
 
-    public Book(String bookName, String author, String publishingHouse, Date publishingDate, float price, DiscountType discountTpye) {
+    public Book(String bookName, String author, String publishingHouse, Date publishingDate, double price, DiscountType discountTpye) {
         this.bookName = bookName;
         this.author = author;
         this.publishingHouse = publishingHouse;
@@ -59,11 +59,11 @@ public class Book {
         this.publishingDate = publishingDate;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

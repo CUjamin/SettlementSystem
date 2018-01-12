@@ -1,6 +1,7 @@
 package cuj.settlementsystem.repository;
 
 import cuj.settlementsystem.domain.DiscountType;
+import org.apache.log4j.Logger;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -10,7 +11,14 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class DiscountRepositoryImpl implements DiscountRepository {
 
+    private final Logger logger = Logger.getLogger(BookRepositoryImpl.class);
+
     private Map<DiscountType, Double> discountMap = null;
+
+    public DiscountRepositoryImpl()
+    {
+        init();
+    }
 
     private void init()
     {
@@ -25,10 +33,7 @@ public class DiscountRepositoryImpl implements DiscountRepository {
      * @return
      */
     public Map<DiscountType, Double> checkAllDiscount() {
-        if(discountMap==null)
-        {
-            init();
-        }
+
         return discountMap;
     }
 
@@ -38,12 +43,17 @@ public class DiscountRepositoryImpl implements DiscountRepository {
      * @return
      */
     public double getDiscountByDiscountType(DiscountType discountType) {
-        if(discountMap==null)
-        {
-            init();
-        }
+
         if(discountMap.containsKey(discountType))
-            return discountMap.get(discountType);
-        return -1;
+        {
+            double discount = discountMap.get(discountType);
+            logger.info(String.format(" [ SUCCES - discountType :%s; discount : %s ] ", discountType, discount));
+            return discount;
+        }
+        else
+        {
+            logger.info(String.format(" [ ERROR - do not contains this discountType : %s ] ", discountType));
+            return 0;
+        }
     }
 }
