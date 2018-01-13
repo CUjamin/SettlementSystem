@@ -18,7 +18,7 @@ public class DiscountRepositoryTest {
 
     @Test
     public void checkAllDiscount() throws Exception {
-        Map<DiscountType,Double> map = discountRepository.checkAllDiscount();
+        Map<String,Double> map = discountRepository.checkAllDiscount();
         System.out.println(map.toString());
     }
 

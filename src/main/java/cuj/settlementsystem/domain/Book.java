@@ -13,12 +13,12 @@ public class Book {
     private String publishingHouse;
     private Date publishingDate;
     private double price;
-    private DiscountType discountTpye;
+    private String discountTpye;
 
     public Book() {
     }
 
-    public Book(String bookName, String author, String publishingHouse, Date publishingDate, double price, DiscountType discountTpye) {
+    public Book(String bookName, String author, String publishingHouse, Date publishingDate, double price, String discountTpye) {
         this.bookName = bookName;
         this.author = author;
         this.publishingHouse = publishingHouse;
@@ -67,11 +67,11 @@ public class Book {
         this.price = price;
     }
 
-    public DiscountType getDiscountTpye() {
+    public String getDiscountTpye() {
         return discountTpye;
     }
 
-    public void setDiscountTpye(DiscountType discountTpye) {
+    public void setDiscountTpye(String discountTpye) {
         this.discountTpye = discountTpye;
     }
 

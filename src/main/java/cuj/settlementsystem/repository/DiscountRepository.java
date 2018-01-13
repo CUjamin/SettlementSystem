@@ -8,7 +8,7 @@ import java.util.Map;
  */
 public interface DiscountRepository {
 
-    Map<DiscountType, Double> checkAllDiscount();
+    Map<String, Double> checkAllDiscount();
 
-    double getDiscountByDiscountType(DiscountType discountType);
+    double getDiscountByDiscountType(String discountType);
 }

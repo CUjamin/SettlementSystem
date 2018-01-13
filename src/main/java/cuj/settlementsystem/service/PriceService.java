@@ -8,4 +8,6 @@ import cuj.settlementsystem.domain.Book;
 public interface PriceService {
 
     double discountPrice(Book book);
+    double discountPrice(double bookPrice , int count,String discountType );
+
 }

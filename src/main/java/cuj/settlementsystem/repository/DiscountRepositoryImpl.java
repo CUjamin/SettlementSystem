@@ -14,7 +14,7 @@ public class DiscountRepositoryImpl implements DiscountRepository {
 
     private static DiscountRepository discountRepository = new DiscountRepositoryImpl();
 
-    private Map<DiscountType, Double> discountMap = null;
+    private Map<String, Double> discountMap = null;
 
     private DiscountRepositoryImpl() {init();}
 
@@ -25,7 +25,7 @@ public class DiscountRepositoryImpl implements DiscountRepository {
 
     private void init()
     {
-        discountMap = new ConcurrentHashMap<DiscountType, Double>();
+        discountMap = new ConcurrentHashMap<String, Double>();
         discountMap.put(DiscountType.NEW_BOOK , 1.2);
         discountMap.put(DiscountType.COMMON_BOOK , 1.0);
         discountMap.put(DiscountType.UNSALABLE_BOOK , 0.6);
@@ -35,7 +35,7 @@ public class DiscountRepositoryImpl implements DiscountRepository {
      *
      * @return
      */
-    public Map<DiscountType, Double> checkAllDiscount() {
+    public Map<String, Double> checkAllDiscount() {
 
         return discountMap;
     }
@@ -45,7 +45,7 @@ public class DiscountRepositoryImpl implements DiscountRepository {
      * @param discountType
      * @return
      */
-    public double getDiscountByDiscountType(DiscountType discountType) {
+    public double getDiscountByDiscountType(String discountType) {
 
         if(discountMap.containsKey(discountType))
         {
