@@ -33,5 +33,13 @@ public class PriceServiceTest {
         System.out.println(priceService.discountPrice(bookB));
         System.out.println(priceService.discountPrice(bookC));
     }
+    @Test
+    public void discountPrice1() throws Exception {
+        System.out.println(120==priceService.discountPrice(10,10,DiscountType.NEW_BOOK));
+        System.out.println(100==priceService.discountPrice(10,10,DiscountType.COMMON_BOOK));
+        System.out.println(60==priceService.discountPrice(10,10,DiscountType.UNSALABLE_BOOK));
+
+    }
+
 
 }
