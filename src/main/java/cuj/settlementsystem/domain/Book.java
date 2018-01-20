@@ -88,6 +88,7 @@ public class Book {
     }
 
     /**
+     *
      * 暂时用书名 bookName 作为图书的唯一表述
      * @param other
      * @return
