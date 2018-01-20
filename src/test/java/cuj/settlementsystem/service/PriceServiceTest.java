@@ -38,8 +38,5 @@ public class PriceServiceTest {
         System.out.println(120==priceService.discountPrice(10,10,DiscountType.NEW_BOOK));
         System.out.println(100==priceService.discountPrice(10,10,DiscountType.COMMON_BOOK));
         System.out.println(60==priceService.discountPrice(10,10,DiscountType.UNSALABLE_BOOK));
-
     }
-
-
 }
