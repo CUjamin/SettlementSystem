@@ -3,7 +3,9 @@ package cuj.settlementsystem.service;
 import cuj.settlementsystem.domain.Book;
 import cuj.settlementsystem.repository.BookRepository;
 import cuj.settlementsystem.repository.BookRepositoryImpl;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Map;
 
 /**
@@ -11,18 +13,22 @@ import java.util.Map;
  */
 public class BookStoreServiceImpl implements BookStoreService {
 
-    private final Logger logger = Logger.getLogger(BookRepositoryImpl.class);
+    private final Logger logger = LoggerFactory.getLogger(BookStoreServiceImpl.class);
 
     private BookRepository bookRepository = BookRepositoryImpl.getInstance();
 
     private PriceService priceService = new PriceServiceImpl();
 
+    @Override
     public void showStockMap() {
         Map<String ,Integer> map = bookRepository.checkStockMap();
         for (String bookName : map.keySet())
+        {
             logger.info(String.format(" bookName : %s ; stock : %d ", bookName, map.get(bookName)));
+        }
     }
 
+    @Override
     public void showBookInfo(String bookName) {
         Book book = bookRepository.checkBookInfo(bookName);
         if(book==null)
@@ -35,6 +41,7 @@ public class BookStoreServiceImpl implements BookStoreService {
         }
     }
 
+    @Override
     public double checkPriceByBookName(String bookName) {
         Book book = bookRepository.checkBookInfo(bookName);
         if(book==null)
@@ -48,6 +55,7 @@ public class BookStoreServiceImpl implements BookStoreService {
         }
     }
 
+    @Override
     public Book buyBookByName(String bookName, double price) {
         Book book = bookRepository.checkBookInfo(bookName);
         double needPay = checkPriceByBookName(bookName);

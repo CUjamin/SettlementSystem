@@ -1,7 +1,8 @@
 package cuj.settlementsystem.repository;
 
 import cuj.settlementsystem.domain.Book;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -10,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class BookRepositoryImpl implements BookRepository {
 
-    private final Logger logger = Logger.getLogger(BookRepositoryImpl.class);
+    private final Logger logger = LoggerFactory.getLogger(BookRepositoryImpl.class);
 
     private static BookRepository bookRepository = new BookRepositoryImpl();
 
@@ -34,6 +35,7 @@ public class BookRepositoryImpl implements BookRepository {
         logger.info(String.format("new book:%s", newBook.getInfo()));
     }
 
+    @Override
     public Book checkBookInfo(String bookName) {
         if(bookMap.containsKey(bookName))
         {
@@ -42,10 +44,12 @@ public class BookRepositoryImpl implements BookRepository {
         return null;
     }
 
+    @Override
     public Map<String, Integer> checkStockMap() {
         return stockMap;
     }
 
+    @Override
     public boolean addNewBooks(Book newBook, int count) {
 
         if(count>0)
@@ -71,6 +75,7 @@ public class BookRepositoryImpl implements BookRepository {
         }
     }
 
+    @Override
     public boolean delNewBooks(Book newBook, int count) {
         if(count>0)
         {
